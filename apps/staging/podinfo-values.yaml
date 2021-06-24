@@ -11,7 +11,8 @@ spec:
     enable: false
   values:
     ingress:
-      - host: podinfo.staging
-        paths:
-         - path: /
-           pathType: ImplementationSpecific
+      hosts:
+        - host: podinfo.staging
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
