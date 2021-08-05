@@ -14,3 +14,4 @@ namespace: test-replacements
 
 transformers:
   - replacement-transformer.yaml
+  - annotations-transformer.yaml
