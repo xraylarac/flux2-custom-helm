@@ -1,0 +1,25 @@
+apiVersion: builtin
+kind: ReplacementTransformer
+metadata:
+  name: notImportantHere
+replacements:
+  - source:
+      kind: ConfigMap
+      name: metas
+      fieldPath: data.[limits.memory]
+    targets:
+      - select:
+          name: common
+          kind: ResourceQuota
+        fieldPaths:
+          - spec.hard.[limits.memory]
+  - source:
+      kind: ConfigMap
+      name: metas
+      fieldPath: data.[limits.cpu]
+    targets:
+      - select:
+          name: common
+          kind: ResourceQuota
+        fieldPaths:
+          - spec.hard.[limits.cpu]

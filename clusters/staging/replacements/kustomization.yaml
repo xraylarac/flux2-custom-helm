@@ -11,24 +11,5 @@ configMapGenerator:
       - limits.cpu=16
       - limits.memory=24Gi
 
-replacements:
-  - source:
-      kind: ConfigMap
-      name: metas
-      fieldPath: data.[limits.memory]
-    targets:
-      - select:
-          name: common
-          kind: ResourceQuota
-        fieldPaths:
-          - spec.hard.[limits.memory]
-  - source:
-      kind: ConfigMap
-      name: metas
-      fieldPath: data.[limits.cpu]
-    targets:
-      - select:
-          name: common
-          kind: ResourceQuota
-        fieldPaths:
-          - spec.hard.[limits.cpu]
+transformers:
+  - replacement-transformer.yaml
