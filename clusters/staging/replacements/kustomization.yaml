@@ -3,13 +3,14 @@ kind: Kustomization
 resources:
   - quotas.yaml
   - namespace.yaml
+  - configmap.yaml
 
 namespace: test-replacements
-configMapGenerator:
-  - name: metas
-    literals:
-      - limits.cpu=16
-      - limits.memory=24Gi
+#configMapGenerator:
+#  - name: metas
+#    literals:
+#      - limits.cpu=16
+#      - limits.memory=24Gi
 
 transformers:
   - replacement-transformer.yaml
